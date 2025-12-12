@@ -39,6 +39,7 @@ jobs:
       # 6. SonarQube Scan
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6
+        timeout-minutes: 20
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
@@ -46,6 +47,6 @@ jobs:
       # 7. SonarQube Quality Gate Check
       - name: SonarQube Quality Gate
         uses: SonarSource/sonarqube-quality-gate-action@v1
-        timeout-minutes: 10
+        timeout-minutes: 20
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
