@@ -5,6 +5,6 @@ export const metadata = {
 export default function Page() {
   return <div>
     <h1>SonarQube Demo</h1>
-    <p>Updated</p>
+    <p>Updated 2</p>
   </div>;
 }
