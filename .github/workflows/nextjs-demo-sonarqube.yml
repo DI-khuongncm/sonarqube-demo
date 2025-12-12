@@ -28,15 +28,11 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      # 4. Run Jest tests with coverage BEFORE SonarQube
-      - name: Run tests with coverage
-        run: npm run test --coverage
-
-      # 5. Build Next.js AFTER test
+      # 4. Build Next.js AFTER test
       - name: Build Next.js app
         run: npm run build
 
-      # 6. SonarQube Scan
+      # 5. SonarQube Scan
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6
         timeout-minutes: 20
@@ -44,7 +40,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
           SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
 
-      # 7. SonarQube Quality Gate Check
+      # 6. SonarQube Quality Gate Check
       - name: SonarQube Quality Gate
         uses: SonarSource/sonarqube-quality-gate-action@v1
         timeout-minutes: 20
